@@ -1,7 +1,7 @@
 {
   "name": "@yr/data-store-locales",
   "description": "An yr/data-store factory for managing locales",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": "Alexander Pope <alexander.pope@nrk.no>",
   "dependencies": {
     "@yr/data-store": "1.1.x",
@@ -37,14 +37,13 @@
     "expect.js": "*",
     "mocha": "*"
   },
-  "main": "src/index.js",
+  "main": "index.js",
   "repository": "https://github.com/YR/data-store-locales.git",
   "license": "MIT",
   "scripts": {
     "prepublish": "buddy build",
     "test": "NODE_ENV=test mocha test/test.js --reporter spec --bail"
   },
-  "browser": "index.js",
   "buddy": {
     "build": [
       {
