@@ -59,7 +59,7 @@ module.exports = {
     for (const localeCode in locales) {
       const locale = locales[localeCode];
 
-      if (fn) fn(locale);
+      if (fn) fn(locale, this);
 
       // Lock
       locale.isWritable = false;

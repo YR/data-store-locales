@@ -7,7 +7,7 @@ An [@yr/data-store](https://github.com/YR/data-store) factory for managing local
 Create new locale for `localeCode`
 
 #### `init(fn: Function)`
-Initialise all created locales by passing each to `fn`. Locales will be non-writeable once initialised.
+Initialise all created locales by passing each to `fn(locale: DataStore, locales: Object)`. Locales will be non-writeable once initialised.
 
 #### `get(localeCode: String): DataStore`
 Retrieve locale DataStore for `localeCode`.
