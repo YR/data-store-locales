@@ -5,9 +5,9 @@
  * Loads and parses all locales on initialization.
  */
 
-var locales = require('./index');
-var path = {};
-var readdir = require('@yr/readdir');
+const locales = require('./index');
+const path = require('path');
+const readdir = require('@yr/readdir');
 
 /**
  * Load locale files in 'localespath'
@@ -16,22 +16,22 @@ var readdir = require('@yr/readdir');
  * @param {Object} options
  */
 module.exports = function load(localespath, localeCodes, options) {
-  localeCodes.forEach(function (localeCode) {
-    var localeInstance = locales.get(localeCode);
+  localeCodes.forEach(localeCode => {
+    let localeInstance = locales.get(localeCode);
 
     if (!localeInstance) {
-      var time = void 0;
+      let time;
 
       try {
-        time = require('@yr/time/locale/' + localeCode + '.json');
+        time = require(`@yr/time/locale/${ localeCode }.json`);
       } catch (err) {
         time = {};
       }
 
-      localeInstance = locales.create(localeCode, { time: time }, options);
+      localeInstance = locales.create(localeCode, { time }, options);
     }
 
-    var data = loadLocale(path.resolve(localespath, localeCode));
+    const data = loadLocale(path.resolve(localespath, localeCode));
 
     if (data) localeInstance.set(data);
   });
@@ -43,19 +43,19 @@ module.exports = function load(localespath, localeCodes, options) {
  * @returns {Object}
  */
 function loadLocale(localepath) {
-  var data = {};
+  let data = {};
 
   // Read and store file contents
-  readdir(localepath, true, /\.json$/).forEach(function (filepath) {
+  readdir(localepath, true, /\.json$/).forEach(filepath => {
     // Use filename as key
-    var key = path.basename(filepath).replace(path.extname(filepath), '');
+    const key = path.basename(filepath).replace(path.extname(filepath), '');
     // Parse property names (directory names under localepath)
-    var props = filepath.replace(localepath, '').split(path.sep).slice(1, -1);
-    var slot = data;
+    const props = filepath.replace(localepath, '').split(path.sep).slice(1, -1);
+    let slot = data;
 
     if (props.length) {
       // Walk and set props
-      props.reduce(function (prev, cur) {
+      props.reduce((prev, cur) => {
         if (!prev[cur]) prev[cur] = {};
         // Store reference
         slot = prev[cur];
