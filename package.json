@@ -1,7 +1,7 @@
 {
   "name": "@yr/data-store-locales",
   "description": "An yr/data-store factory for managing locales",
-  "version": "1.2.2",
+  "version": "2.0.0",
   "author": "Alexander Pope <alexander.pope@nrk.no>",
   "dependencies": {
     "@yr/data-store": "1.1.x",
