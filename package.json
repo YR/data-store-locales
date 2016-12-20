@@ -44,6 +44,9 @@
     "prepublish": "buddy build",
     "test": "NODE_ENV=test mocha test/test.js --reporter spec --bail"
   },
+  "browser": {
+    "./src/lib/loader-server.js": "./src/lib/loader-client.js"
+  },
   "buddy": {
     "build": [
       {
@@ -51,12 +54,6 @@
         "output": ".",
         "bundle": false,
         "version": "es5"
-      },
-      {
-        "input": "src/loader-server.js",
-        "output": ".",
-        "bundle": false,
-        "version": "node6"
       }
     ]
   }

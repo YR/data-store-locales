@@ -1,21 +1,16 @@
 'use strict';
 
-/**
- * Utility to load language locales.
- * Loads and parses all locales on initialization.
- */
-
-const locales = require('./index');
 const path = require('path');
 const readdir = require('@yr/readdir');
 
 /**
  * Load locale files in 'localespath'
- * @param {String} localespath
  * @param {Array} localeCodes
- * @param {Object} options
+ * @param {Object} locales
+ * @param {String} localespath
+ * @param {Object} [options]
  */
-module.exports = function load (localespath, localeCodes, options) {
+module.exports = function load (localeCodes, locales, localespath, options) {
   localeCodes.forEach((localeCode) => {
     let localeInstance = locales.get(localeCode);
 
@@ -28,7 +23,7 @@ module.exports = function load (localespath, localeCodes, options) {
         time = {};
       }
 
-      localeInstance = locales.create(localeCode, { time }, options);
+      localeInstance = locales.add(localeCode, { time }, options);
     }
 
     const data = loadLocale(path.resolve(localespath, localeCode));

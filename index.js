@@ -2,6 +2,8 @@
 
 var assign = require('object-assign');
 var dataStore = require('@yr/data-store');
+// Remapped on client to "./lib/loader-client"
+var loader = require('./lib/loader-server');
 
 var DATA = {
   en: {
@@ -32,32 +34,56 @@ var LANGUAGES = {
   }
 };
 
-var locales = {};
+var _locales = {};
+var _localeCodes = [];
 
 module.exports = {
   /**
-   * Create new locale at 'localeCode' with 'data'
+   * Initialize
+   * @param {Array} localeCodes
+   */
+  init: function init(localeCodes) {
+    _localeCodes = localeCodes;
+  },
+
+
+  /**
+   * Add new locale at 'localeCode' with 'data'
    * @param {String} localeCode
    * @param {Object} [data]
    * @param {Object} [options]
    * @returns {DataStore}
    */
-  create: function create(localeCode, data, options) {
-    if (!locales[localeCode]) {
+  add: function add(localeCode, data, options) {
+    if (!_locales[localeCode]) {
       data = assign({}, DATA[localeCode], LANGUAGES, data);
-      locales[localeCode] = dataStore.create(localeCode, data, options);
+      _locales[localeCode] = dataStore.create(localeCode, data, options);
     }
 
-    return locales[localeCode];
+    return _locales[localeCode];
   },
 
+
   /**
-   * Initialize all locales
+   * Load locale data
+   * @param {Array} args
+   */
+  load: function load() {
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    loader.apply(undefined, [_localeCodes, this].concat(args));
+  },
+
+
+  /**
+   * Lock all locales
    * @param {Function} fn
    */
-  init: function init(fn) {
-    for (var localeCode in locales) {
-      var locale = locales[localeCode];
+  finalize: function finalize(fn) {
+    for (var localeCode in _locales) {
+      var locale = _locales[localeCode];
 
       if (fn) fn(locale, this);
 
@@ -66,22 +92,25 @@ module.exports = {
     }
   },
 
+
   /**
    * Retrieve dataStore at 'localeCode'
    * @param {String} localeCode
    * @returns {DataStore}
    */
   get: function get(localeCode) {
-    return locales[localeCode];
+    return _locales[localeCode];
   },
+
 
   /**
    * Destroy all instances
    */
   destroy: function destroy() {
-    for (var localeCode in locales) {
-      locales[localeCode].destroy();
+    for (var localeCode in _locales) {
+      _locales[localeCode].destroy();
     }
-    locales = {};
+    _locales = {};
+    _localeCodes = [];
   }
 };

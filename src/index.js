@@ -2,6 +2,8 @@
 
 const assign = require('object-assign');
 const dataStore = require('@yr/data-store');
+// Remapped on client to "./lib/loader-client"
+const loader = require('./lib/loader-server');
 
 const DATA = {
   en: {
@@ -32,32 +34,49 @@ const LANGUAGES = {
   }
 };
 
-let locales = {};
+let _locales = {};
+let _localeCodes = [];
 
 module.exports = {
   /**
-   * Create new locale at 'localeCode' with 'data'
+   * Initialize
+   * @param {Array} localeCodes
+   */
+  init (localeCodes) {
+    _localeCodes = localeCodes;
+  },
+
+  /**
+   * Add new locale at 'localeCode' with 'data'
    * @param {String} localeCode
    * @param {Object} [data]
    * @param {Object} [options]
    * @returns {DataStore}
    */
-  create (localeCode, data, options) {
-    if (!locales[localeCode]) {
+  add (localeCode, data, options) {
+    if (!_locales[localeCode]) {
       data = assign({}, DATA[localeCode], LANGUAGES, data);
-      locales[localeCode] = dataStore.create(localeCode, data, options);
+      _locales[localeCode] = dataStore.create(localeCode, data, options);
     }
 
-    return locales[localeCode];
+    return _locales[localeCode];
   },
 
   /**
-   * Initialize all locales
+   * Load locale data
+   * @param {Array} args
+   */
+  load (...args) {
+    loader(_localeCodes, this, ...args);
+  },
+
+  /**
+   * Lock all locales
    * @param {Function} fn
    */
-  init (fn) {
-    for (const localeCode in locales) {
-      const locale = locales[localeCode];
+  finalize (fn) {
+    for (const localeCode in _locales) {
+      const locale = _locales[localeCode];
 
       if (fn) fn(locale, this);
 
@@ -72,16 +91,17 @@ module.exports = {
    * @returns {DataStore}
    */
   get (localeCode) {
-    return locales[localeCode];
+    return _locales[localeCode];
   },
 
   /**
    * Destroy all instances
    */
   destroy () {
-    for (const localeCode in locales) {
-      locales[localeCode].destroy();
+    for (const localeCode in _locales) {
+      _locales[localeCode].destroy();
     }
-    locales = {};
+    _locales = {};
+    _localeCodes = [];
   }
 };
