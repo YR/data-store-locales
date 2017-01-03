@@ -1,7 +1,6 @@
 'use strict';
 
 const expect = require('expect.js');
-const loader = require('../src/lib/loader-server');
 const locales = require('../src/index');
 const path = require('path');
 
