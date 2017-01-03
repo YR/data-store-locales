@@ -12,5 +12,8 @@ Initialise all created locales by passing each to `fn(locale: DataStore, locales
 #### `get(localeCode: String): DataStore`
 Retrieve locale DataStore for `localeCode`.
 
+#### `all(): Object`
+Retrieve all locale DataStores keyed by `localeCode`.
+
 #### `destroy()`
 Destroy all instances.

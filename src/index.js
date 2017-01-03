@@ -95,6 +95,14 @@ module.exports = {
   },
 
   /**
+   * Retrieve all locales
+   * @returns {Array}
+   */
+  all () {
+    return _locales;
+  },
+
+  /**
    * Destroy all instances
    */
   destroy () {
