@@ -37,7 +37,7 @@
     "expect.js": "*",
     "mocha": "*"
   },
-  "main": "index.js",
+  "main": "src/index.js",
   "repository": "https://github.com/YR/data-store-locales.git",
   "license": "MIT",
   "scripts": {
@@ -45,7 +45,8 @@
     "test": "NODE_ENV=test mocha test/test.js --reporter spec --bail"
   },
   "browser": {
-    "./src/lib/loader-server.js": "./src/lib/loader-client.js"
+    "./src/index.js": "./index.js",
+    "./lib/loader-server.js": "./lib/loader-client.js"
   },
   "buddy": {
     "build": [
