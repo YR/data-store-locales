@@ -3,14 +3,17 @@
 const path = require('path');
 const readdir = require('@yr/readdir');
 
+const RE_JSON = /\.json$/;
+
 /**
  * Load locale files in 'localespath'
  * @param {Array} localeCodes
  * @param {Object} locales
  * @param {String} localespath
- * @param {Object} [options]
+ * @param {Obejct} [options]
+ *  - {String} rootpath
  */
-module.exports = function load (localeCodes, locales, localespath, options) {
+module.exports = function load (localeCodes, locales, localespath, options = {}) {
   localeCodes.forEach((localeCode) => {
     let localeInstance = locales.get(localeCode);
 
@@ -24,6 +27,10 @@ module.exports = function load (localeCodes, locales, localespath, options) {
       }
 
       localeInstance = locales.add(localeCode, { time }, options);
+    }
+
+    if (options.rootpath && path.resolve(localespath) !== localespath) {
+      localespath = path.join(options.rootpath, localespath);
     }
 
     const data = loadLocale(path.resolve(localespath, localeCode));
@@ -41,7 +48,7 @@ function loadLocale (localepath) {
   let data = {};
 
   // Read and store file contents
-  readdir(localepath, true, /\.json$/)
+  readdir(localepath, true, RE_JSON)
     .forEach((filepath) => {
       // Use filename as key
       const key = path.basename(filepath).replace(path.extname(filepath), '');
