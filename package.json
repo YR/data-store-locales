@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "babel-plugin-syntax-trailing-function-commas": "6.22.0",
+    "babel-plugin-transform-async-generator-functions": "6.22.0",
     "babel-plugin-transform-async-to-generator": "6.22.0",
     "babel-plugin-transform-es2015-arrow-functions": "6.22.0",
     "babel-plugin-transform-es2015-block-scoped-functions": "6.22.0",
@@ -32,6 +33,7 @@
     "babel-plugin-transform-es2015-unicode-regex": "6.22.0",
     "babel-plugin-transform-es5-property-mutators": "6.22.0",
     "babel-plugin-transform-exponentiation-operator": "6.22.0",
+    "babel-plugin-transform-object-rest-spread": "6.22.0",
     "buddy": "6.x.x",
     "expect.js": "*",
     "mocha": "*"
