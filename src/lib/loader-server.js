@@ -30,11 +30,16 @@ module.exports = function load(localeCodes, locales, localespath, options) {
       const data = Object.assign(
         { time },
         initialData[localeCode],
-        initialLanguages,
-        loadLocale(path.resolve(localespath, localeCode))
+        initialLanguages
       );
 
-      locales.add(localeCode, data, options);
+      localeInstance = locales.add(localeCode, data, options);
+    }
+
+    const data = loadLocale(path.resolve(localespath, localeCode));
+
+    if (data) {
+      localeInstance.set(data);
     }
   });
 };
