@@ -12,8 +12,8 @@ const RE_JSON = /\.json$/;
  * @param {String} localespath
  * @param {Obejct} [options]
  */
-module.exports = function load (localeCodes, locales, localespath, options) {
-  localeCodes.forEach((localeCode) => {
+module.exports = function load(localeCodes, locales, localespath, options) {
+  localeCodes.forEach(localeCode => {
     let localeInstance = locales.get(localeCode);
 
     if (!localeInstance) {
@@ -30,7 +30,9 @@ module.exports = function load (localeCodes, locales, localespath, options) {
 
     const data = loadLocale(path.resolve(localespath, localeCode));
 
-    if (data) localeInstance.set(data);
+    if (data) {
+      localeInstance.set(data);
+    }
   });
 };
 
@@ -39,32 +41,34 @@ module.exports = function load (localeCodes, locales, localespath, options) {
  * @param {String} localepath
  * @returns {Object}
  */
-function loadLocale (localepath) {
-  let data = {};
+function loadLocale(localepath) {
+  const data = {};
 
   // Read and store file contents
-  readdir(localepath, true, RE_JSON)
-    .forEach((filepath) => {
-      // Use filename as key
-      const key = path.basename(filepath).replace(path.extname(filepath), '');
-      // Parse property names (directory names under localepath)
-      const props = filepath.replace(localepath, '')
-        .split(path.sep)
-        .slice(1, -1);
-      let slot = data;
+  readdir(localepath, true, RE_JSON).forEach(filepath => {
+    // Use filename as key
+    const key = path.basename(filepath).replace(path.extname(filepath), '');
+    // Parse property names (directory names under localepath)
+    const props = filepath.replace(localepath, '').split(path.sep).slice(1, -1);
+    let slot = data;
 
-      if (props.length) {
-        // Walk and set props
-        props.reduce((prev, cur) => {
-          if (!prev[cur]) prev[cur] = {};
+    if (props.length) {
+      // Walk and set props
+      props.reduce(
+        (prev, cur) => {
+          if (!prev[cur]) {
+            prev[cur] = {};
+          }
           // Store reference
           slot = prev[cur];
           return slot;
-        }, data);
-      }
+        },
+        data
+      );
+    }
 
-      slot[key] = require(filepath);
-    });
+    slot[key] = require(filepath);
+  });
 
   return data;
 }

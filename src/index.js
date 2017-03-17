@@ -42,7 +42,7 @@ module.exports = {
    * Initialize
    * @param {Array} localeCodes
    */
-  init (localeCodes) {
+  init(localeCodes) {
     _localeCodes = localeCodes;
   },
 
@@ -53,7 +53,7 @@ module.exports = {
    * @param {Object} [options]
    * @returns {DataStore}
    */
-  add (localeCode, data, options) {
+  add(localeCode, data, options) {
     if (!_locales[localeCode]) {
       data = assign({}, DATA[localeCode], LANGUAGES, data);
       _locales[localeCode] = dataStore.create(localeCode, data, options);
@@ -66,7 +66,7 @@ module.exports = {
    * Load locale data
    * @param {Array} args
    */
-  load (...args) {
+  load(...args) {
     loader(_localeCodes, this, ...args);
   },
 
@@ -74,11 +74,13 @@ module.exports = {
    * Lock all locales
    * @param {Function} fn
    */
-  finalize (fn) {
+  finalize(fn) {
     for (const localeCode in _locales) {
       const locale = _locales[localeCode];
 
-      if (fn) fn(locale, this);
+      if (fn) {
+        fn(locale, this);
+      }
 
       // Lock
       locale.isWritable = false;
@@ -90,7 +92,7 @@ module.exports = {
    * @param {String} localeCode
    * @returns {DataStore}
    */
-  get (localeCode) {
+  get(localeCode) {
     return _locales[localeCode];
   },
 
@@ -98,14 +100,14 @@ module.exports = {
    * Retrieve all locales
    * @returns {Array}
    */
-  all () {
+  all() {
     return _locales;
   },
 
   /**
    * Destroy all instances
    */
-  destroy () {
+  destroy() {
     for (const localeCode in _locales) {
       _locales[localeCode].destroy();
     }

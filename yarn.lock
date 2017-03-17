@@ -17,8 +17,8 @@
     raf "3.3.0"
 
 "@yr/data-store@4.x.x":
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/@yr/data-store/-/data-store-4.2.2.tgz#0a3d00be67ff09754d68193ddd4f417ab994e95c"
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/@yr/data-store/-/data-store-4.2.3.tgz#8a334033fc08d64aaf13a7a455e56d256fbd1777"
   dependencies:
     "@yr/agent" "5.0.x"
     "@yr/clock" "1.1.x"
