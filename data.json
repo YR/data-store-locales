@@ -1,0 +1,17 @@
+{
+  "en": {
+    "code": "en",
+    "lang": "en-gb",
+    "title": "english"
+  },
+  "nb": {
+    "code": "nb",
+    "lang": "nb-no",
+    "title": "bokmål"
+  },
+  "nn": {
+    "code": "nn",
+    "lang": "nn-no",
+    "title": "nynorsk"
+  }
+}

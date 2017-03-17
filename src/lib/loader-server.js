@@ -1,5 +1,7 @@
 'use strict';
 
+const initialData = require('../../data.json');
+const initialLanguages = require('../../languages.json');
 const path = require('path');
 const readdir = require('@yr/readdir');
 
@@ -25,13 +27,14 @@ module.exports = function load(localeCodes, locales, localespath, options) {
         time = {};
       }
 
-      localeInstance = locales.add(localeCode, { time }, options);
-    }
+      const data = Object.assign(
+        { time },
+        initialData[localeCode],
+        initialLanguages,
+        loadLocale(path.resolve(localespath, localeCode))
+      );
 
-    const data = loadLocale(path.resolve(localespath, localeCode));
-
-    if (data) {
-      localeInstance.set(data);
+      locales.add(localeCode, data, options);
     }
   });
 };

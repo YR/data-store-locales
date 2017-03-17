@@ -1,38 +1,8 @@
 'use strict';
 
-const assign = require('object-assign');
 const dataStore = require('@yr/data-store');
 // Remapped on client to "./lib/loader-client"
 const loader = require('./lib/loader-server');
-
-const DATA = {
-  en: {
-    code: 'en',
-    lang: 'en-gb',
-    title: 'english'
-  },
-  nb: {
-    code: 'nb',
-    lang: 'nb-no',
-    title: 'bokmål'
-  },
-  nn: {
-    code: 'nn',
-    lang: 'nn-no',
-    title: 'nynorsk'
-  }
-};
-const LANGUAGES = {
-  languages: {
-    norwegian: {
-      nb: 'bokmål',
-      nn: 'nynorsk'
-    },
-    other: {
-      en: 'english'
-    }
-  }
-};
 
 let _locales = {};
 let _localeCodes = [];
@@ -55,7 +25,6 @@ module.exports = {
    */
   add(localeCode, data, options) {
     if (!_locales[localeCode]) {
-      data = assign({}, DATA[localeCode], LANGUAGES, data);
       _locales[localeCode] = dataStore.create(localeCode, data, options);
     }
 

@@ -1,0 +1,11 @@
+{
+  "languages": {
+    "norwegian": {
+      "nb": "bokmål",
+      "nn": "nynorsk"
+    },
+    "other": {
+      "en": "english"
+    }
+  }
+}

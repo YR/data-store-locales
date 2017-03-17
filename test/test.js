@@ -18,12 +18,12 @@ describe('data-store-locales', () => {
 
   describe('finalize()', () => {
     beforeEach(() => {
-      locales.add('en', { foo: 'foo' });
-      locales.add('nb', { foo: 'føø' });
+      locales.add('en', { code: 'en', foo: 'foo' });
+      locales.add('nb', { code: 'nb', foo: 'føø' });
     });
 
     it('should finalize created locales', () => {
-      locales.finalize((locale) => {
+      locales.finalize(locale => {
         const localeCode = locale.get('code');
 
         locale.set('bar', localeCode == 'en' ? 'bar' : 'bår');
