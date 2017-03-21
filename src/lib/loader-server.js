@@ -39,7 +39,7 @@ module.exports = function load(localeCodes, locales, localespath, options) {
     const data = loadLocale(path.resolve(localespath, localeCode));
 
     if (data) {
-      localeInstance.set(data);
+      localeInstance.setAll(data);
     }
   });
 };
