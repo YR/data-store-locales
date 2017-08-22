@@ -1,6 +1,6 @@
 'use strict';
 
-const expect = require('expect.js');
+const { expect } = require('chai');
 const locales = require('../src/index');
 const path = require('path');
 
@@ -16,25 +16,28 @@ describe('data-store-locales', () => {
     });
   });
 
-  describe('finalize()', () => {
+  describe('freeze()', () => {
     beforeEach(() => {
       locales.add('en', { code: 'en', foo: 'foo' });
       locales.add('nb', { code: 'nb', foo: 'føø' });
     });
 
-    it('should finalize created locales', () => {
-      locales.finalize(locale => {
-        const localeCode = locale.get('code');
-
-        locale.set('bar', localeCode == 'en' ? 'bar' : 'bår');
+    it('should freeze created locales', () => {
+      locales.freeze({
+        en: { bar: 'bar' },
+        nb: { bar: 'bår' }
       });
       expect(locales.get('en').get('bar')).to.equal('bar');
       expect(locales.get('nb').get('bar')).to.equal('bår');
     });
     it('should ensure locales are non-writeable', () => {
-      locales.finalize();
-      locales.get('en').set('foo', 'bar');
-      expect(locales.get('en').get('foo')).to.equal('foo');
+      locales.freeze();
+      try {
+        locales.get('en').set('foo', 'bar');
+        expect(false);
+      } catch (err) {
+        expect(locales.get('en').get('foo')).to.equal('foo');
+      }
     });
   });
 

@@ -12,9 +12,8 @@ const RE_JSON = /\.json$/;
  * @param {Array} localeCodes
  * @param {Object} locales
  * @param {String} localespath
- * @param {Obejct} [options]
  */
-module.exports = function load(localeCodes, locales, localespath, options) {
+module.exports = function load(localeCodes, locales, localespath) {
   localeCodes.forEach(localeCode => {
     let localeInstance = locales.get(localeCode);
 
@@ -33,7 +32,7 @@ module.exports = function load(localeCodes, locales, localespath, options) {
         initialLanguages
       );
 
-      localeInstance = locales.add(localeCode, data, options);
+      localeInstance = locales.add(localeCode, data);
     }
 
     const data = loadLocale(path.resolve(localespath, localeCode));

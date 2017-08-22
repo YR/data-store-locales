@@ -3,11 +3,21 @@
 
 An [@yr/data-store](https://github.com/YR/data-store) factory for managing locales.
 
-#### `create(localeCode: String, [data: Object], [options: Object]): DataStore`
-Create new locale for `localeCode`
+#### `init(localeCodes: Array)`
+Configure with valid locale codes.
 
-#### `init(fn: Function)`
-Initialise all created locales by passing each to `fn(locale: DataStore, locales: Object)`. Locales will be non-writeable once initialised.
+#### `add(localeCode: String, [data: Object], [options: Object]): DataStore`
+Add new locale for `localeCode`.
+
+#### `load(...args)`
+Load locale files.
+
+For server environments, the signature is `load(localespath: String)`, where `localespath` is a path to a directory of *.json files.
+
+For browser environments, the signature is `load(data: Object)`, where `data` is locale data for *one* locale.
+
+#### `freeze(data: Object)`
+Lock all locales after optionally setting `data`.
 
 #### `get(localeCode: String): DataStore`
 Retrieve locale DataStore for `localeCode`.

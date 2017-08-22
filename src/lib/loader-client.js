@@ -5,9 +5,8 @@
  * @param {String} localeCode
  * @param {Object} locales
  * @param {Object} data
- * @param {Obejct} [options]
 */
-module.exports = function load(localeCode, locales, data, options) {
+module.exports = function load(localeCode, locales, data) {
   // Only one valid locale at a time
   if (Array.isArray(localeCode)) {
     localeCode = localeCode[0];
@@ -16,6 +15,6 @@ module.exports = function load(localeCode, locales, data, options) {
   const localeInstance = locales.get(localeCode);
 
   if (!localeInstance) {
-    locales.add(localeCode, data, options);
+    locales.add(localeCode, data);
   }
 };

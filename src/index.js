@@ -40,19 +40,19 @@ module.exports = {
   },
 
   /**
-   * Lock all locales
-   * @param {Function} fn
+   * Lock all locales after optionally setting data
+   * @param {Object} [data]
    */
-  finalize(fn) {
+  freeze(data) {
     for (const localeCode in _locales) {
       const locale = _locales[localeCode];
 
-      if (fn) {
-        fn(locale, this);
+      if (data !== undefined && data[localeCode] !== undefined) {
+        locale.setAll(data[localeCode]);
       }
 
       // Lock
-      locale.isWritable = false;
+      locale.setWriteable(false);
     }
   },
 
