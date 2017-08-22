@@ -4,7 +4,7 @@
   "version": "2.2.5",
   "author": "Alexander Pope <alexander.pope@nrk.no>",
   "dependencies": {
-    "@yr/data-store": "6.x.x",
+    "@yr/data-store": "7.x.x",
     "@yr/readdir": "1.1.x",
     "@yr/time": "5.0.x",
     "@yr/url-utils": "2.3.x"
@@ -15,7 +15,7 @@
     "babel-plugin-transform-async-to-generator": "6.24.1",
     "babel-plugin-transform-es2015-arrow-functions": "6.22.0",
     "babel-plugin-transform-es2015-block-scoped-functions": "6.22.0",
-    "babel-plugin-transform-es2015-block-scoping": "6.24.1",
+    "babel-plugin-transform-es2015-block-scoping": "6.26.0",
     "babel-plugin-transform-es2015-classes": "6.24.1",
     "babel-plugin-transform-es2015-computed-properties": "6.24.1",
     "babel-plugin-transform-es2015-destructuring": "6.23.0",
@@ -32,9 +32,9 @@
     "babel-plugin-transform-es2015-unicode-regex": "6.24.1",
     "babel-plugin-transform-es5-property-mutators": "6.24.1",
     "babel-plugin-transform-exponentiation-operator": "6.24.1",
-    "babel-plugin-transform-object-rest-spread": "6.23.0",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
     "buddy": "6.x.x",
-    "expect.js": "*",
+    "chai": "^4.1.1",
     "mocha": "*"
   },
   "main": "src/index.js",
