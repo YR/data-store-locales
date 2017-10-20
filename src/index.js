@@ -4,16 +4,17 @@ const dataStore = require('@yr/data-store');
 // Remapped on client to "./lib/loader-client"
 const loader = require('./lib/loader-server');
 
-let _locales = {};
-let _localeCodes = [];
+let locales = {};
+let localeCodes = [];
+let frozen = false;
 
 module.exports = {
   /**
    * Initialize
-   * @param {Array} localeCodes
+   * @param {Array} codes
    */
-  init(localeCodes) {
-    _localeCodes = localeCodes;
+  init(codes) {
+    localeCodes = codes;
   },
 
   /**
@@ -24,11 +25,11 @@ module.exports = {
    * @returns {DataStore}
    */
   add(localeCode, data, options) {
-    if (!_locales[localeCode]) {
-      _locales[localeCode] = dataStore.create(localeCode, data, options);
+    if (!locales[localeCode]) {
+      locales[localeCode] = dataStore.create(localeCode, data, options);
     }
 
-    return _locales[localeCode];
+    return locales[localeCode];
   },
 
   /**
@@ -36,7 +37,11 @@ module.exports = {
    * @param {Array} args
    */
   load(...args) {
-    loader(_localeCodes, this, ...args);
+    if (frozen) {
+      return;
+    }
+
+    loader(localeCodes, this, ...args);
   },
 
   /**
@@ -44,8 +49,10 @@ module.exports = {
    * @param {Object} [data]
    */
   freeze(data) {
-    for (const localeCode in _locales) {
-      const locale = _locales[localeCode];
+    frozen = true;
+
+    for (const localeCode in locales) {
+      const locale = locales[localeCode];
 
       if (data !== undefined && data[localeCode] !== undefined) {
         locale.setAll(data[localeCode]);
@@ -62,25 +69,26 @@ module.exports = {
    * @returns {DataStore}
    */
   get(localeCode) {
-    return _locales[localeCode];
+    return locales[localeCode];
   },
 
   /**
    * Retrieve all locales
-   * @returns {Array}
+   * @returns {Object}
    */
   all() {
-    return _locales;
+    return locales;
   },
 
   /**
    * Destroy all instances
    */
   destroy() {
-    for (const localeCode in _locales) {
-      _locales[localeCode].destroy();
+    for (const localeCode in locales) {
+      locales[localeCode].destroy();
     }
-    _locales = {};
-    _localeCodes = [];
+    locales = {};
+    localeCodes = [];
+    frozen = false;
   }
 };

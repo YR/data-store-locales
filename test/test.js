@@ -56,5 +56,9 @@ describe('data-store-locales', () => {
     it('should load an "en" locale with time data', () => {
       expect(locales.get('en').get('time')).to.have.property('today', 'Today');
     });
+    it('should bail if already frozen', () => {
+      locales.freeze();
+      locales.load(path.resolve(__dirname, './fixtures'));
+    });
   });
 });

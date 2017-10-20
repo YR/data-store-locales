@@ -26,11 +26,7 @@ module.exports = function load(localeCodes, locales, localespath) {
         time = {};
       }
 
-      const data = Object.assign(
-        { time },
-        initialData[localeCode],
-        initialLanguages
-      );
+      const data = Object.assign({ time }, initialData[localeCode], initialLanguages);
 
       localeInstance = locales.add(localeCode, data);
     }
@@ -56,22 +52,22 @@ function loadLocale(localepath) {
     // Use filename as key
     const key = path.basename(filepath).replace(path.extname(filepath), '');
     // Parse property names (directory names under localepath)
-    const props = filepath.replace(localepath, '').split(path.sep).slice(1, -1);
+    const props = filepath
+      .replace(localepath, '')
+      .split(path.sep)
+      .slice(1, -1);
     let slot = data;
 
     if (props.length) {
       // Walk and set props
-      props.reduce(
-        (prev, cur) => {
-          if (!prev[cur]) {
-            prev[cur] = {};
-          }
-          // Store reference
-          slot = prev[cur];
-          return slot;
-        },
-        data
-      );
+      props.reduce((prev, cur) => {
+        if (!prev[cur]) {
+          prev[cur] = {};
+        }
+        // Store reference
+        slot = prev[cur];
+        return slot;
+      }, data);
     }
 
     slot[key] = require(filepath);
