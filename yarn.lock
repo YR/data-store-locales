@@ -39,9 +39,9 @@
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@yr/runtime/-/runtime-2.0.0.tgz#500e2d49fa0d9dac57293b6a183dd5a353a371c3"
 
-"@yr/time@5.0.x":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@yr/time/-/time-5.0.0.tgz#e2da4c33ae15d737a284bd1948dfb100872da7be"
+"@yr/time@5.x.x":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@yr/time/-/time-5.1.0.tgz#9b0872bbe8f7f3cbfbccf8e7c3a612503ef8c35e"
 
 "@yr/url-utils@2.3.x":
   version "2.3.2"

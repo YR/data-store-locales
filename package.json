@@ -6,7 +6,7 @@
   "dependencies": {
     "@yr/data-store": "8.x.x",
     "@yr/readdir": "1.1.x",
-    "@yr/time": "5.0.x",
+    "@yr/time": "5.x.x",
     "@yr/url-utils": "2.3.x"
   },
   "devDependencies": {
