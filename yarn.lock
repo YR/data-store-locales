@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@yr/data-store@10.0.0-alpha-1":
-  version "10.0.0-alpha-1"
-  resolved "https://registry.yarnpkg.com/@yr/data-store/-/data-store-10.0.0-alpha-1.tgz#6487acc48ca16e5d4b63655ea2b1899dc657a9d6"
-  integrity sha512-VoZho0G+fLdTxDn7u2+TtlJ8Cs+WP/IysoI+kRo2E4VAmcdo7IvksyvWNa1dgnSMGh5tnDBH1FWoiAPVhkkqyw==
+"@yr/data-store@10.0.0-alpha-2":
+  version "10.0.0-alpha-2"
+  resolved "https://registry.yarnpkg.com/@yr/data-store/-/data-store-10.0.0-alpha-2.tgz#f48738ca526b99a3563f88dd36c583a52be38363"
+  integrity sha512-zdMKdO6/OI6n3EpPejRsV841ZyL4XS85Qn9HD5mbykUD6K1zxxM03LhAKxAuOMl/xWHIskDOioJhxu5uTvGBZw==
   dependencies:
     "@yr/property" "7.0.x"
     "@yr/runtime" "^3.0.0"
