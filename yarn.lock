@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@nrk/yr-time@7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@nrk/yr-time/-/yr-time-7.0.0.tgz#8f404127ff09b60def7de1ed933a6b42e7fbce98"
+  integrity sha512-pzeJMVsuGVMSdkJmVOQAtvLo2NjKSFsGz4iV8auEh/+2tPun3rSJuFvDRhjs061Mmg3wY14p+oL4QJZN8iDFJw==
+
 "@yr/agent@5.0.x":
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/@yr/agent/-/agent-5.0.4.tgz#e99d2842c07e4ad06d0808ca66ed332fe18d6e9e"
@@ -37,10 +42,6 @@
 "@yr/runtime@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@yr/runtime/-/runtime-3.0.0.tgz#522cdd8bdf561f3e69880e01dd3c2b810924b2ab"
-
-"@yr/time@5.x.x":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@yr/time/-/time-5.1.0.tgz#9b0872bbe8f7f3cbfbccf8e7c3a612503ef8c35e"
 
 abbrev@1:
   version "1.1.1"

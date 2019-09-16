@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-const initialData = require('../../data.json');
-const initialLanguages = require('../../languages.json');
-const path = require('path');
-const readdir = require('@yr/readdir');
+const initialData = require("../../data.json");
+const initialLanguages = require("../../languages.json");
+const path = require("path");
+const readdir = require("@yr/readdir");
 
 const RE_JSON = /\.json$/;
 
@@ -21,12 +21,16 @@ module.exports = function load(localeCodes, locales, localespath) {
       let time;
 
       try {
-        time = require(`@yr/time/locale/${localeCode}.json`);
+        time = require(`@nrk/yr-time/locale/${localeCode}.json`);
       } catch (err) {
         time = {};
       }
 
-      const data = Object.assign({ time }, initialData[localeCode], initialLanguages);
+      const data = Object.assign(
+        { time },
+        initialData[localeCode],
+        initialLanguages
+      );
 
       localeInstance = locales.add(localeCode, data);
     }
@@ -50,10 +54,10 @@ function loadLocale(localepath) {
   // Read and store file contents
   readdir(localepath, true, RE_JSON).forEach(filepath => {
     // Use filename as key
-    const key = path.basename(filepath).replace(path.extname(filepath), '');
+    const key = path.basename(filepath).replace(path.extname(filepath), "");
     // Parse property names (directory names under localepath)
     const props = filepath
-      .replace(localepath, '')
+      .replace(localepath, "")
       .split(path.sep)
       .slice(1, -1);
     let slot = data;

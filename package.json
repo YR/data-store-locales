@@ -4,9 +4,9 @@
   "version": "3.0.5",
   "author": "Alexander Pope <alexander.pope@nrk.no>",
   "dependencies": {
+    "@nrk/yr-time": "7.0.0",
     "@yr/data-store": "9.x.x",
-    "@yr/readdir": "1.1.x",
-    "@yr/time": "5.x.x"
+    "@yr/readdir": "1.1.x"
   },
   "devDependencies": {
     "babel-plugin-syntax-trailing-function-commas": "6.22.0",
