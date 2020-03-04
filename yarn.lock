@@ -2,10 +2,15 @@
 # yarn lockfile v1
 
 
-"@yr/data-store@10.0.0-alpha-2":
-  version "10.0.0-alpha-2"
-  resolved "https://registry.yarnpkg.com/@yr/data-store/-/data-store-10.0.0-alpha-2.tgz#f48738ca526b99a3563f88dd36c583a52be38363"
-  integrity sha512-zdMKdO6/OI6n3EpPejRsV841ZyL4XS85Qn9HD5mbykUD6K1zxxM03LhAKxAuOMl/xWHIskDOioJhxu5uTvGBZw==
+"@nrk/yr-time@7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@nrk/yr-time/-/yr-time-7.0.0.tgz#8f404127ff09b60def7de1ed933a6b42e7fbce98"
+  integrity sha512-pzeJMVsuGVMSdkJmVOQAtvLo2NjKSFsGz4iV8auEh/+2tPun3rSJuFvDRhjs061Mmg3wY14p+oL4QJZN8iDFJw==
+
+"@yr/data-store@10.x.x":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@yr/data-store/-/data-store-10.0.0.tgz#decab6dd41e453136fccb6fa2d6722bb45f7b056"
+  integrity sha512-4W/8VQ0E6XOKSh4qEDd2haS5KGmiBnD0O9/12wl3XAGKycz6HxS5ZLVitZ2G6wZhWrysa3lfH4ruUFcSOwCU+Q==
   dependencies:
     "@yr/property" "7.0.x"
     "@yr/runtime" "^3.0.0"
@@ -29,11 +34,6 @@
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@yr/runtime/-/runtime-3.0.0.tgz#522cdd8bdf561f3e69880e01dd3c2b810924b2ab"
   integrity sha512-XJUT7n2PRbfGcVhADJlgKNw+D+o65xzaj7tvxHgAgqxFyhg2Xa5EKsIBnrW2zlhqqvabw/4WPEEGuH4/s8BHzQ==
-
-"@yr/time@5.x.x":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@yr/time/-/time-5.1.0.tgz#9b0872bbe8f7f3cbfbccf8e7c3a612503ef8c35e"
-  integrity sha512-RGAL8UVHtBb7XCEa375KnKf0DfdAVByYPyY97AYTrqLcQWnxQTiB8X+W3QztGuJtrPJ5j/BsVmgPl2d1KQWqEw==
 
 abbrev@1:
   version "1.1.1"
