@@ -36,6 +36,11 @@
     "chai": "^4.1.1",
     "mocha": "*"
   },
+  "resolutions": {
+    "**/**/lodash": "^4.17.12",
+    "**/**/js-yaml": "^3.13.1",
+    "**/**/macaddress": "0.2.9"
+  },
   "main": "src/index.js",
   "repository": "https://github.com/YR/data-store-locales.git",
   "license": "MIT",
