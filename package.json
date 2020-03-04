@@ -5,7 +5,7 @@
   "author": "Alexander Pope <alexander.pope@nrk.no>",
   "dependencies": {
     "@nrk/yr-time": "7.0.0",
-    "@yr/data-store": "9.x.x",
+    "@yr/data-store": "10.x.x",
     "@yr/readdir": "1.1.x"
   },
   "devDependencies": {
@@ -36,8 +36,13 @@
     "chai": "^4.1.1",
     "mocha": "*"
   },
+  "resolutions": {
+    "**/**/lodash": "^4.17.12",
+    "**/**/js-yaml": "^3.13.1",
+    "**/**/macaddress": "0.2.9"
+  },
   "main": "src/index.js",
-  "repository": "https://github.com/YR/data-store-locales.git",
+  "repository": "https://github.com/nrkno/yr-data-store-locales.git",
   "license": "MIT",
   "scripts": {
     "prepublish": "buddy build",
