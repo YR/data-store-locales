@@ -1,5 +1,5 @@
 {
-  "name": "@yr/data-store-locales",
+  "name": "@nrk/yr-data-store-locales",
   "description": "An yr/data-store factory for managing locales",
   "version": "3.2.0",
   "author": "Alexander Pope <alexander.pope@nrk.no>",
