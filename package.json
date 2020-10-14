@@ -45,7 +45,7 @@
   "repository": "https://github.com/nrkno/yr-data-store-locales.git",
   "license": "MIT",
   "scripts": {
-    "prepublish": "buddy build",
+    "prepublishOnly": "buddy build",
     "test": "NODE_ENV=test mocha test/test.js --reporter spec --bail"
   },
   "browser": {
