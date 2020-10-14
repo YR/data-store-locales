@@ -1,7 +1,6 @@
-[![NPM Version](https://img.shields.io/npm/v/@yr/data-store-locales.svg?style=flat)](https://npmjs.org/package/@yr/data-store-locales)
-[![Build Status](https://img.shields.io/travis/YR/data-store-locales.svg?style=flat)](https://travis-ci.org/YR/data-store-locales?branch=master)
+[![Build Status](https://img.shields.io/travis/nrkno/yr-data-store-locales.svg?style=flat)](https://travis-ci.org/nrkno/yr-data-store-locales?branch=master)
 
-An [@yr/data-store](https://github.com/YR/data-store) factory for managing locales.
+An [@nrk/yr-data-store](https://github.com/nrkno/yr-data-store) factory for managing locales.
 
 #### `init(localeCodes: Array)`
 Configure with valid locale codes.
