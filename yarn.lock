@@ -2,38 +2,38 @@
 # yarn lockfile v1
 
 
-"@nrk/yr-time@7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@nrk/yr-time/-/yr-time-7.0.0.tgz#8f404127ff09b60def7de1ed933a6b42e7fbce98"
-  integrity sha512-pzeJMVsuGVMSdkJmVOQAtvLo2NjKSFsGz4iV8auEh/+2tPun3rSJuFvDRhjs061Mmg3wY14p+oL4QJZN8iDFJw==
-
-"@yr/data-store@10.x.x":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@yr/data-store/-/data-store-10.0.0.tgz#decab6dd41e453136fccb6fa2d6722bb45f7b056"
-  integrity sha512-4W/8VQ0E6XOKSh4qEDd2haS5KGmiBnD0O9/12wl3XAGKycz6HxS5ZLVitZ2G6wZhWrysa3lfH4ruUFcSOwCU+Q==
+"@nrk/yr-data-store@11.0.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@nrk/yr-data-store/-/yr-data-store-11.0.0.tgz#7b78e6fb3820f812813f16a488e259bf2b2b5b64"
+  integrity sha512-C/4zJeLwiLp6XYoxd9VJMHaoH/qPI2DQ5rWTBlOClv/9NX5sG+2NcvKlIkncAKQscB+KVv0WbT82OA4JwNtuvA==
   dependencies:
-    "@yr/property" "7.0.x"
-    "@yr/runtime" "^3.0.0"
+    "@nrk/yr-property" "^8.0.0"
+    "@nrk/yr-runtime" "^4.0.0"
     debug "3.x.x"
     is-plain-obj "1.1.x"
 
-"@yr/property@7.0.x":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@yr/property/-/property-7.0.3.tgz#7b341d9cddad7a9a26f004d79852951174e949c8"
-  integrity sha1-ezQdnN2tepom8ATXmFKVEXTpScg=
+"@nrk/yr-property@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@nrk/yr-property/-/yr-property-8.0.0.tgz#88974f9019e0cdc912e60d7be6ee8c4825a92272"
+  integrity sha512-IuTxEZ2Sxn4rZwXwywu3dGY95gE9d9197QQFzJBnyptJUSb4YBe5HsPNvnXo/p8eI3tnlb/Z3C8pF+gy8zthrQ==
   dependencies:
     deep-freeze "0.0.1"
     is-plain-obj "1.1.x"
 
-"@yr/readdir@1.1.x":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@yr/readdir/-/readdir-1.1.2.tgz#385520a41e63d7aa8199c3a793319ca239451d87"
-  integrity sha1-OFUgpB5j16qBmcOnkzGcojlFHYc=
+"@nrk/yr-readdir@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@nrk/yr-readdir/-/yr-readdir-2.0.0.tgz#6aaedaf20910814e8c3e347763ec260bde095cc7"
+  integrity sha512-uvOCfRlN+cSlp1fFo9PUvoqnU4Bv7yue9jNBjcsxmEkSljNvlEoJ2LMdFj0UTglI/0d6sNyyyHycL9oQmIQ/Hg==
 
-"@yr/runtime@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@yr/runtime/-/runtime-3.0.0.tgz#522cdd8bdf561f3e69880e01dd3c2b810924b2ab"
-  integrity sha512-XJUT7n2PRbfGcVhADJlgKNw+D+o65xzaj7tvxHgAgqxFyhg2Xa5EKsIBnrW2zlhqqvabw/4WPEEGuH4/s8BHzQ==
+"@nrk/yr-runtime@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@nrk/yr-runtime/-/yr-runtime-4.0.0.tgz#b69d3d85418a152fd07a8c11bfcc07c116c803d1"
+  integrity sha512-v06NczognWRPVQ29uJcnprWqeEAdp/6pDcnAw9zGStRESe7UWhitGp/ZblyS8I2zcM9TWeRea7ZXQd6JlBp2GA==
+
+"@nrk/yr-time@7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@nrk/yr-time/-/yr-time-7.0.0.tgz#8f404127ff09b60def7de1ed933a6b42e7fbce98"
+  integrity sha512-pzeJMVsuGVMSdkJmVOQAtvLo2NjKSFsGz4iV8auEh/+2tPun3rSJuFvDRhjs061Mmg3wY14p+oL4QJZN8iDFJw==
 
 abbrev@1:
   version "1.1.1"
