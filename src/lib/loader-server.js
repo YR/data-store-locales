@@ -3,7 +3,7 @@
 const initialData = require("../../data.json");
 const initialLanguages = require("../../languages.json");
 const path = require("path");
-const readdir = require("@yr/readdir");
+const readdir = require("@nrk/yr-readdir");
 
 const RE_JSON = /\.json$/;
 

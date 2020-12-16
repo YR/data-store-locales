@@ -4,7 +4,7 @@
   "version": "4.1.0",
   "author": "Alexander Pope <alexander.pope@nrk.no>",
   "dependencies": {
-    "@nrk/yr-data-store": "11.0.0",
+    "@nrk/yr-data-store": "11.1.0",
     "@nrk/yr-readdir": "2.0.0",
     "@nrk/yr-time": "7.0.0"
   },

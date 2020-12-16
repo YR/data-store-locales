@@ -1,6 +1,6 @@
 'use strict';
 
-const dataStore = require('@yr/data-store');
+const dataStore = require('@nrk/yr-data-store');
 // Remapped on client to "./lib/loader-client"
 const loader = require('./lib/loader-server');
 
